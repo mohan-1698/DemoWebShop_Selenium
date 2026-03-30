@@ -13,7 +13,6 @@ public class cartpageTest extends BaseTest {
     @Test
     public void testCartCountryAndStateSelection() {
 
-        // 🔥 Step 1: Add product first (cart must not be empty)
         HomePage home = new HomePage(driver);
         ProductPage product = new ProductPage(driver);
         ShoppingCart cart = new ShoppingCart(driver);
@@ -25,15 +24,12 @@ public class cartpageTest extends BaseTest {
         Assert.assertTrue(product.isProductAddedToCart(),
                 "Product not added before opening cart!");
 
-        // 🔥 Step 2: Open Cart
         cart.openCart();
 
-        // 🔥 Step 3: Select Country
         cart.selectCountry("India");
 
-        // 🔥 Step 4: Select State
         cart.selectState("Other (Non US)");
 
-        System.out.println("✅ Cart country & state selection successful");
+        System.out.println("Cart country & state selection successful");
     }
 }

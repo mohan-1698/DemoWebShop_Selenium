@@ -14,19 +14,13 @@ public class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
 
-        // 🔥 Disable autofill popup
         options.addArguments("--disable-autofill-keyboard-accessory-view");
         options.addArguments("--disable-save-password-bubble");
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-notifications");
-
-        // 🔥 MAIN FIX (very important)
         options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding");
-
-        // 🔥 BEST PRACTICE (extra stability)
         options.addArguments("--incognito");
 
-        // ✅ Initialize driver with options
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();

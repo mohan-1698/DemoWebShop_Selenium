@@ -17,34 +17,28 @@ public class ShoppingCart {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // 🔥 Locators
     By shoppingCartLink = By.cssSelector("a.ico-cart");
-    By successBar = By.id("bar-notification");   // 🔥 important fix
+    By successBar = By.id("bar-notification");
     By countryDropdown = By.id("CountryId");
     By stateDropdown = By.id("StateProvinceId");
 
-    // 🔥 Step 1: Open Shopping Cart (FIXED)
     public void openCart() {
 
         try {
-            // ✅ Wait for success notification to disappear
             wait.until(ExpectedConditions.invisibilityOfElementLocated(successBar));
         } catch (Exception e) {
             // Ignore if not present
         }
 
-        // ✅ Then click cart safely
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartLink)).click();
     }
 
-    // 🔥 Step 2: Select Country
     public void selectCountry(String countryName) {
         Select country = new Select(driver.findElement(countryDropdown));
         country.selectByVisibleText(countryName);
         System.out.println("Selected Country: " + countryName);
     }
 
-    // 🔥 Step 3: Select State
     public void selectState(String stateName) {
         Select state = new Select(driver.findElement(stateDropdown));
         state.selectByVisibleText(stateName);
