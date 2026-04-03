@@ -20,22 +20,18 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding");
         options.addArguments("--incognito");
- 
+
+        // CI FIXES 🔥
         options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-
-        driver = new ChromeDriver(options);
-        
-        
+        options.addArguments("--window-size=1920,1080");
 
         driver = new ChromeDriver(options);
 
-        driver.manage().window().maximize();
         driver.get("https://demowebshop.tricentis.com/");
     }
 
-     
     @AfterSuite
     public void tearDown() {
         if (driver != null) {
