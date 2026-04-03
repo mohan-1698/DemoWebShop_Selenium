@@ -20,6 +20,14 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-features=AutofillServerCommunication,PasswordManagerOnboarding");
         options.addArguments("--incognito");
+ 
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        driver = new ChromeDriver(options);
+        
+        
 
         driver = new ChromeDriver(options);
 
