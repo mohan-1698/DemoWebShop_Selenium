@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,6 +15,7 @@ public class ProductPage {
     public ProductPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
     }
 
     public void openProduct(String productName) {
